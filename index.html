@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>arms — arm64 Linux Tools Store</title>
+<style>
+:root{
+  --bg:#07090f; --bg2:#0c0f1a; --panel:rgba(255,255,255,.04);
+  --border:rgba(255,255,255,.09); --txt:#e8ecf6; --muted:#9aa4bd;
+  --cyan:#22d3ee; --violet:#a78bfa; --pink:#f472b6; --green:#34d399;
+  --amber:#fbbf24; --red:#f87171;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg); color:var(--txt); min-height:100vh; overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+/* animated aurora background */
+.bg{position:fixed;inset:0;z-index:-2;background:var(--bg)}
+.bg .blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;mix-blend-mode:screen;animation:float 26s ease-in-out infinite}
+.bg .b1{width:55vw;height:55vw;background:radial-gradient(circle,#1d4ed8,transparent 60%);top:-20%;left:-15%;animation-delay:0s}
+.bg .b2{width:45vw;height:45vw;background:radial-gradient(circle,#7c3aed,transparent 60%);bottom:-15%;right:-10%;animation-delay:-8s}
+.bg .b3{width:40vw;height:40vw;background:radial-gradient(circle,#0ea5e9,transparent 60%);top:40%;left:55%;animation-delay:-16s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(4%,-5%) scale(1.1)}66%{transform:translate(-3%,4%) scale(.95)}}
+/* starfield */
+.stars{position:fixed;inset:0;z-index:-1;pointer-events:none}
+.star{position:absolute;background:#fff;border-radius:50%;opacity:.7;animation:tw 4s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.15}50%{opacity:.9}}
+
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+/* nav */
+nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(18px);background:rgba(7,9,15,.6);border-bottom:1px solid var(--border)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:1.25rem;letter-spacing:.5px;cursor:pointer;display:flex;align-items:center;gap:10px}
+.logo .chip{font-size:1.5rem;filter:drop-shadow(0 0 10px rgba(34,211,238,.6))}
+.logo span{background:linear-gradient(90deg,var(--cyan),var(--violet),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav-links{display:flex;gap:6px;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;padding:7px 13px;border-radius:99px;transition:.25s;border:1px solid transparent}
+.nav-links a:hover{color:var(--txt);border-color:var(--border);background:var(--panel)}
+
+/* hero */
+.hero{padding:96px 0 56px;text-align:center;position:relative}
+.hero .kicker{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);border:1px solid rgba(34,211,238,.3);background:rgba(34,211,238,.08);padding:7px 16px;border-radius:99px;margin-bottom:26px;animation:rise .7s ease both}
+.hero h1{font-size:clamp(2.6rem,7vw,5rem);font-weight:900;line-height:1.05;letter-spacing:-2px;margin-bottom:20px;animation:rise .7s .1s ease both}
+.hero h1 .grad{background:linear-gradient(90deg,var(--cyan),var(--violet),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.sub{max-width:620px;margin:0 auto 34px;color:var(--muted);font-size:1.12rem;line-height:1.6;animation:rise .7s .2s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+/* stats */
+.stats{display:flex;justify-content:center;gap:34px;flex-wrap:wrap;margin-bottom:48px;animation:rise .7s .3s ease both}
+.stat{text-align:center}
+.stat .num{font-size:2.4rem;font-weight:900;background:linear-gradient(90deg,var(--cyan),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .lbl{font-size:.78rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:4px}
+/* search */
+.searchbox{max-width:640px;margin:0 auto;position:relative;animation:rise .7s .4s ease both}
+.searchbox input{width:100%;padding:18px 22px 18px 54px;border-radius:16px;border:1px solid var(--border);background:var(--panel);color:var(--txt);font-size:1.05rem;outline:none;transition:.3s;backdrop-filter:blur(10px)}
+.searchbox input:focus{border-color:var(--cyan);box-shadow:0 0 0 4px rgba(34,211,238,.15),0 0 30px rgba(34,211,238,.2)}
+.searchbox svg{position:absolute;left:19px;top:50%;transform:translateY(-50%);width:20px;height:20px;stroke:var(--muted)}
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;max-width:900px;margin:28px auto 10px;animation:rise .7s .5s ease both}
+.chip{padding:8px 16px;border-radius:99px;border:1px solid var(--border);background:var(--panel);color:var(--muted);cursor:pointer;font-size:.85rem;transition:.22s;user-select:none}
+.chip:hover{color:var(--txt);border-color:var(--violet)}
+.chip.active{background:linear-gradient(90deg,rgba(34,211,238,.2),rgba(167,139,250,.2));border-color:var(--violet);color:var(--txt);box-shadow:0 0 18px rgba(167,139,250,.25)}
+
+/* sections */
+main{padding:20px 0 80px}
+.section{margin-bottom:40px;animation:rise .6s ease both}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding:0 4px}
+.section-head .ico{font-size:1.5rem}
+.section-head h2{font-size:1.3rem;font-weight:800;letter-spacing:-.5px}
+.section-head .count{margin-left:auto;font-size:.78rem;color:var(--muted);background:var(--panel);border:1px solid var(--border);padding:4px 11px;border-radius:99px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+/* tool card */
+.card{position:relative;border:1px solid var(--border);background:var(--panel);border-radius:16px;padding:18px;cursor:pointer;transition:.28s cubic-bezier(.2,.8,.3,1);overflow:hidden;backdrop-filter:blur(8px)}
+.card::after{content:"";position:absolute;inset:0;background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),rgba(167,139,250,.12),transparent 40%);opacity:0;transition:.3s}
+.card:hover{transform:translateY(-4px);border-color:rgba(167,139,250,.5);box-shadow:0 14px 40px rgba(0,0,0,.45)}
+.card:hover::after{opacity:1}
+.card .name{font-weight:700;font-size:1.02rem;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.card .name .st{font-size:.72rem;padding:2px 8px;border-radius:99px;font-weight:600;letter-spacing:.3px}
+.st.g{background:rgba(52,211,153,.15);color:var(--green)}
+.st.w{background:rgba(251,191,36,.15);color:var(--amber)}
+.st.c{background:rgba(34,211,238,.15);color:var(--cyan)}
+.st.r{background:rgba(248,113,113,.15);color:var(--red)}
+.card .desc{font-size:.86rem;color:var(--muted);line-height:1.45;margin-bottom:12px}
+.card .inst{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.76rem;color:var(--cyan);background:rgba(0,0,0,.3);padding:7px 10px;border-radius:8px;border:1px solid var(--border);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* footer */
+footer{border-top:1px solid var(--border);padding:44px 0 60px;margin-top:40px}
+footer .disc{background:linear-gradient(135deg,rgba(248,113,113,.08),rgba(251,191,36,.06));border:1px solid rgba(248,113,113,.25);border-radius:16px;padding:22px 24px;margin-bottom:28px}
+footer .disc h3{font-size:.95rem;margin-bottom:8px;color:var(--amber)}
+footer .disc p{font-size:.85rem;color:var(--muted);line-height:1.6}
+footer .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:.82rem;color:var(--muted)}
+footer a{color:var(--cyan);text-decoration:none}
+footer a:hover{text-decoration:underline}
+/* modal */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal .ov{position:absolute;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);animation:fade .2s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.modal .box{position:relative;background:linear-gradient(160deg,#10141f,#0b0e17);border:1px solid var(--border);border-radius:20px;max-width:520px;width:100%;padding:30px;animation:pop .25s cubic-bezier(.2,.8,.3,1)}
+@keyframes pop{from{opacity:0;transform:scale(.92) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.modal .close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--muted);font-size:1.5rem;cursor:pointer;line-height:1}
+.modal .close:hover{color:var(--txt)}
+.modal h3{font-size:1.5rem;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.modal .cat{font-size:.8rem;color:var(--violet);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+.modal .desc{color:var(--muted);line-height:1.6;margin-bottom:18px}
+.modal .kv{border-top:1px solid var(--border);padding-top:14px;display:flex;flex-direction:column;gap:10px}
+.modal .kv div{display:flex;justify-content:space-between;gap:16px;font-size:.88rem}
+.modal .kv .k{color:var(--muted)}
+.modal .kv .v{text-align:right;font-weight:600}
+.modal .kv code{font-family:ui-monospace,Menlo,monospace;color:var(--cyan)}
+/* toast for copy */
+.toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(80px);background:#10141f;border:1px solid var(--cyan);color:var(--txt);padding:12px 22px;border-radius:99px;font-size:.88rem;transition:.3s;z-index:200;opacity:0}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+.empty{text-align:center;color:var(--muted);padding:50px 0;font-size:1rem;display:none}
+::selection{background:rgba(167,139,250,.35)}
+@media(max-width:640px){.hero{padding:64px 0 40px}.stats{gap:22px}.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="bg"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+<div class="stars" id="stars"></div>
+
+<nav><div class="wrap">
+  <div class="logo" onclick="scrollTo(0,0)"><span class="chip">🛒</span><span>arms</span></div>
+  <div class="nav-links">
+    <a href="#store">Store</a>
+    <a href="https://github.com/soobujmiah/arms" target="_blank">GitHub ↗</a>
+  </div>
+</div></nav>
+
+<header class="hero wrap">
+  <div class="kicker">✦ native arm64 / aarch64 linux ✦</div>
+  <h1>The <span class="grad">arm64</span> Tool<br>Store</h1>
+  <p class="sub">A curated catalog of <b>~150 tools</b> that run natively on arm64 Linux — shells, IDEs, AI, security, media &amp; more. Collected from public sources, organized in one place.</p>
+  <div class="stats">
+    <div class="stat"><div class="num" id="st-tools">0</div><div class="lbl">Tools</div></div>
+    <div class="stat"><div class="num" id="st-cats">0</div><div class="lbl">Categories</div></div>
+    <div class="stat"><div class="num">100%</div><div class="lbl">Collected</div></div>
+  </div>
+  <div class="searchbox">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input id="search" type="text" placeholder="Search tools, categories, install commands…" autocomplete="off">
+  </div>
+  <div class="chips" id="chips"></div>
+</header>
+
+<main class="wrap" id="store">
+  <div id="sections"></div>
+  <div class="empty" id="empty">No tools match your search 🔍</div>
+</main>
+
+<footer><div class="wrap">
+  <div class="disc">
+    <h3>⚠️ Copyright Disclaimer</h3>
+    <p><b>I do NOT hold any copyright</b> over the tools listed here. This is only a <b>catalog / collector</b> of names, descriptions, links and install instructions gathered from public sources. All names, trademarks and binaries belong to their <b>respective owners</b>, each under its own license. Nothing here is a claim of ownership or authorship. If you're a rights holder and want something removed or corrected, open an issue — I'll act immediately.</p>
+  </div>
+  <div class="foot">
+    <div>🛒 <b>arms</b> — the arm64 Linux Tools Store · not affiliated with any listed project</div>
+    <div><a href="https://github.com/soobujmiah/arms" target="_blank">github.com/soobujmiah/arms</a> · <a href="https://github.com/soobujmiah/arms/blob/main/DISCLAIMER.md" target="_blank">Full disclaimer</a></div>
+  </div>
+</div></footer>
+
+<div class="modal" id="modal">
+  <div class="ov" onclick="closeModal()"></div>
+  <div class="box">
+    <button class="close" onclick="closeModal()">×</button>
+    <div class="cat" id="m-cat"></div>
+    <h3 id="m-name"></h3>
+    <div class="desc" id="m-desc"></div>
+    <div class="kv">
+      <div><span class="k">Status</span><span class="v" id="m-status"></span></div>
+      <div><span class="k">Install</span><span class="v"><code id="m-install"></code></span></div>
+      <div><span class="k">Note</span><span class="v" id="m-note"></span></div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast">Copied to clipboard ✓</div>
+
+<script>
+const DATA = [
+{cat:"System & Shell",emoji:"🖥️",tools:[["tmux","Terminal multiplexer","✅","apt install tmux","static v3.5a"],["fish","Friendly interactive shell","✅","apt install fish","v4.8.0"],["neovim","Vim-fork editor","✅","apt install neovim","glibc 2.17"],["bat","cat clone w/ syntax highlighting","✅","apt install bat","Rust"],["eza","Modern ls replacement","✅","apt install eza","Rust"],["fd","Fast find alternative","✅","apt install fd-find","Rust"],["ripgrep","Fast regex search","✅","apt install ripgrep","Rust"],["fzf","Fuzzy finder","✅","apt install fzf","Go"],["jq","JSON processor","✅","apt install jq","C"],["btop","Resource monitor","✅","apt install btop","C++"],["zoxide","Smarter cd","✅","apt install zoxide","Rust"],["starship","Cross-shell prompt","✅","curl -sS https://starship.rs/install.sh | sh","Rust"],["yazi","Async file manager","✅","apt install yazi","Rust"],["duf","Better df","✅","apt install duf","Go"],["delta","Syntax-highlighting diff","✅","apt install git-delta","Rust"]]},
+{cat:"Language Runtimes",emoji:"☕",tools:[["OpenJDK 17/21","Java runtime & compiler","✅","apt install openjdk-17-jdk","Temurin/Adoptium"],["Node.js","JavaScript runtime","✅","curl -fsSL https://deb.nodesource.com/setup_20.sh | sudo bash -","JS"],["Python 3","Python interpreter","✅","apt install python3 python3-pip",""],["Go","Compiled language","✅","apt install golang-go","official tarball"],["Rust","Compiled language","✅","curl https://sh.rustup.rs -sSf | sh","rustup"],["GCC/Clang/LLVM","C/C++ toolchain","✅","apt install gcc g++ clang llvm",""],["Dart","Dart SDK","✅","via Flutter SDK","Flutter 3.0+"]]},
+{cat:"Build Tools",emoji:"🔨",tools:[["Gradle","JVM build (Android/Java/Kotlin)","✅","sdk install gradle","pure JVM"],["Maven","JVM build","✅","apt install maven","pure JVM"],["CMake","C/C++ meta-build","✅","apt install cmake",""],["Make","Classic build","✅","apt install make",""],["Ninja","Fast build backend","✅","apt install ninja-build",""],["Bazel","Google build system","✅","apt install bazel-bootstrap","linux-arm64"],["Meson","Python build system","✅","apt install meson",""]]},
+{cat:"IDEs & Editors",emoji:"💻",tools:[["VS Code","Code editor","✅","code.visualstudio.com → arm64","official"],["IntelliJ IDEA","Java/Kotlin IDE","✅","jetbrains.com → aarch64","2022.3+"],["PyCharm/WebStorm/CLion","JetBrains IDEs","✅","jetbrains.com downloads","aarch64"],["JetBrains Runtime","JBR","✅","github.com/JetBrains/JetBrainsRuntime","linux-aarch64"],["Eclipse/NetBeans","Java IDEs","✅","installer (JVM)",""],["Arduino IDE 2.x","Embedded IDE","⚠️","community arm64 build","matu6968"],["Android Studio","Android IDE","⚠️","workaround (merge IntelliJ aarch64)","no official"],["Neovim","Terminal editor","✅","apt install neovim",""]]},
+{cat:"Android SDK",emoji:"🤖",tools:[["build-tools (aapt2)","Resource compiler","🔗","lzhiyong/HomuHomu releases","community arm64"],["platform-tools (adb)","Device bridge","🔗","lzhiyong / AndroidIDE builds","community arm64"],["NDK","Native toolchain","🔗","HomuHomu833/android-ndk-custom r29","aarch64"],["cmdline-tools (sdkmanager)","SDK manager","✅","commandlinetools-linux zip","shell+Java"],["platforms android.jar","API stubs","✅","arch-independent JAR",""],["APK Workbench","ARM64 SDK/NDK catalog","🔗","github.com/Denuo-Web/APK-Workbench","Rust"],["Emulator","AVD emulation","❌","use physical device","experimental only"],["SecFathy binaries","NDK compilers + coreutils","🔗","github.com/SecFathy/Android-arm64-Binaries","66 tools"]]},
+{cat:"Cross-Compilation",emoji:"🎯",tools:[["gcc-aarch64-linux-gnu","GNU C compiler → aarch64","✅","apt install gcc-aarch64-linux-gnu",""],["binutils-aarch64-linux-gnu","Assembler/linker → aarch64","✅","apt install binutils-aarch64-linux-gnu",""],["gdb-multiarch","Multi-arch debugger","✅","apt install gdb-multiarch",""],["Xcode clang (macOS)","arm64 toolchain","✅","xcode-select --install","Apple Silicon"]]},
+{cat:"Embedded & Hardware",emoji:"🔌",tools:[["nRF Command Line Tools","nrfjprog/mergehex flasher","✅","nordicsemi.com → arm64","10.15.4+"],["SEGGER J-Link","Debug probe software","✅","segger.com","7.x arm64"],["GNU ARM Embedded","arm-none-eabi-gcc","✅","developer.arm.com","aarch64 build"]]},
+{cat:"Emulation Layers",emoji:"🔁",tools:[["Box64","Run x86_64 binaries on arm64","✅","build from ptitSeb/box64","dynarec"],["Box86","Run x86 (32-bit) binaries","✅","ptitSeb/box86",""],["FEX-Emu","Fast x86/x86_64 emulator","✅","fex-emu.com",""],["QEMU user-static","Foreign-arch containers","✅","apt install qemu-user-static",""]]},
+{cat:"Containers",emoji:"📦",tools:[["Docker Engine","Container runtime","✅","curl -fsSL https://get.docker.com | sh","arm64"],["Podman","Rootless containers","✅","apt install podman","aarch64"],["Docker Buildx","Multi-arch builds","✅","docker buildx plugin",""],["containerd/nerdctl","Container runtime","✅","apt install containerd",""]]},
+{cat:"Databases & Services",emoji:"🗄️",tools:[["PostgreSQL","Relational DB","✅","apt install postgresql",""],["MySQL","Relational DB","✅","apt install mysql-server",""],["MariaDB","Relational DB","✅","apt install mariadb-server",""],["SQLite","Embedded DB","✅","apt install sqlite3",""],["Redis","In-memory store","✅","apt install redis-server",""],["MongoDB","Document DB","✅","official arm64 tarball",""],["RabbitMQ","Message broker","✅","apt install rabbitmq-server","Erlang"],["Apache Kafka","Stream platform","✅","JVM — arm64 JDK",""]]},
+{cat:"Dev Infrastructure",emoji:"⚙️",tools:[["Git","Version control","✅","apt install git",""],["GitHub CLI (gh)","GitHub from terminal","✅","official arm64 release",""],["Docker Compose","Compose plugin","✅","apt install docker-compose-plugin",""],["kubectl","K8s CLI","✅","official arm64 release",""],["Helm","K8s package manager","✅","official arm64 release",""],["k3s","Lightweight Kubernetes","✅","k3s ships arm64",""],["Terraform","IaC","✅","official arm64 release",""],["Ansible","Config automation","✅","apt install ansible","Python"],["dotTrace CLI",".NET profiler","⚠️","NuGet windows-arm64","2026.2.x"]]},
+{cat:"On-Device Desktop",emoji:"📱",tools:[["Termux","Linux userspace on Android","✅","f-droid.org → Termux",""],["proot-distro","Rootless distro (PRoot)","✅","pkg install proot-distro",""],["Termux:X11","GPU-accelerated X server","✅","GitHub arm64 APK","Turnip/Zink"],["DroidDesk","Turnkey desktop kit","✅","ramdi.fr writeup",""],["proot-distro-scripts","1-command desktops","✅","github.com/01101010110","XFCE/KDE"]]},
+{cat:"Networking & VPN",emoji:"🌐",tools:[["Tailscale","Zero-config mesh VPN","✅","curl -fsSL https://tailscale.com/install.sh | sh","WireGuard"],["WireGuard","Kernel VPN","✅","apt install wireguard",""],["OpenVPN","TLS VPN","✅","apt install openvpn",""],["Mosh","Resilient mobile shell","✅","apt install mosh",""],["PiVPN","1-command VPN server","✅","curl -L https://install.pivpn.io | bash",""],["RaspAP","Wi-Fi AP + VPN GUI","✅","curl -sL https://install.raspap.com | bash",""]]},
+{cat:"Security",emoji:"🛡️",tools:[["nmap","Network scanner","✅","apt install nmap",""],["Wireshark","Packet analyzer","✅","apt install wireshark",""],["tcpdump","CLI packet capture","✅","apt install tcpdump",""],["aircrack-ng","Wireless audit suite","✅","apt install aircrack-ng",""],["Kismet","Wireless discovery","✅","apt install kismet",""],["bettercap","Network MITM framework","✅","apt install bettercap",""],["hashcat","Password recovery","✅","apt install hashcat",""],["John the Ripper","Password cracker","✅","apt install john",""],["Metasploit","Pentest framework","✅","apt install metasploit-framework",""],["hydra","Login brute-forcer","✅","apt install hydra",""],["sqlmap","SQL injection tool","✅","apt install sqlmap",""],["nikto","Web scanner","✅","apt install nikto",""]]},
+{cat:"AI & Machine Learning",emoji:"🧠",tools:[["Ollama","Local LLM server","✅","curl -fsSL https://ollama.com/install.sh | sh","CPU"],["llama.cpp","CPU-first inference","✅","cmake -B build -DGGML_NATIVE=ON","GGUF"],["whisper.cpp","Speech-to-text","✅","git clone ggml-org/whisper.cpp","C++"]]},
+{cat:"Media & Graphics",emoji:"🎨",tools:[["ffmpeg","Transcode/stream media","✅","apt install ffmpeg",""],["mpv","Video player","✅","apt install mpv","--hwdec=drm-copy"],["ImageMagick","Image manipulation","✅","apt install imagemagick",""],["sox","Audio processing","✅","apt install sox",""],["GIMP","Image editor","✅","GIMP-*-aarch64.AppImage","3.2.x"],["Blender","3D creation suite","✅","apt install blender","5.x"],["Inkscape","Vector graphics","✅","apt install inkscape",""],["Krita","Digital painting","✅","AppImage/Flatpak",""],["LibreOffice","Office suite","✅","apt install libreoffice",""],["Kdenlive","Video editor","✅","apt install kdenlive",""],["Shotcut","Video editor","✅","AppImage",""],["OBS Studio","Live streaming","✅","apt install obs-studio",""],["Audacity","Audio editor","✅","apt install audacity",""],["digiKam","Photo manager","✅","AppImage",""]]},
+{cat:"Monitoring",emoji:"📈",tools:[["Prometheus","Time-series DB","✅","prometheus-*-linux-arm64.tar.gz",":9090"],["Grafana","Dashboards","✅","grafana.com arm64 .deb",":3000"],["node_exporter","System metrics","✅","node_exporter-*-linux-arm64.tar.gz",":9100"],["Alertmanager","Alert routing","✅","Prometheus release",":9093"],["ntopng","Traffic analyzer","✅","packages.ntop.org/RaspberryPI",""]]},
+{cat:"Web Servers",emoji:"🌍",tools:[["nginx","Reverse proxy / web server","✅","apt install nginx","1.31"],["Caddy","Auto-HTTPS web server","✅","apt install caddy","2.11"],["Traefik","Cloud-native ingress","✅","traefik_*_linux_arm64.tar.gz","3.x"],["Apache httpd","Classic web server","✅","apt install apache2",""],["lighttpd","Lightweight server","✅","apt install lighttpd",""]]},
+{cat:"Backup & Sync",emoji:"💾",tools:[["restic","Encrypted dedup backup","✅","apt install restic","Go"],["BorgBackup","SSH compressed backup","✅","apt install borgbackup",""],["Kopia","Dedup backup + GUI","✅","linux-arm64 release",""],["rclone","Sync 50+ cloud backends","✅","apt install rclone",""],["rsync","Incremental sync","✅","apt install rsync",""],["Timeshift","System snapshots","✅","apt install timeshift",""],["duplicity","Encrypted incremental","✅","apt install duplicity",""]]},
+{cat:"Package Managers",emoji:"📥",tools:[["apt","Debian/Ubuntu/RPi OS","✅","built-in",""],["pacman","Arch Linux ARM","✅","built-in",""],["dnf","Fedora arm64","✅","built-in",""],["apk","Alpine arm64","✅","built-in",""],["pkg","Termux","✅","built-in",""],["Nix","Reproducible manager","✅","sh <(curl -L https://nixos.org/nix/install)",""],["Flatpak","Sandboxed apps","✅","apt install flatpak",""],["Snap","Universal packages","✅","apt install snapd",""],["AppImage","Portable single-file","✅","download *-aarch64.AppImage",""],["Homebrew","macOS-style brew","⚠️","x86_64-only on Linux","unsupported arm64"]]}
+];
+
+// ---- starfield ----
+const stars=document.getElementById('stars');
+for(let i=0;i<90;i++){const s=document.createElement('div');s.className='star';
+s.style.width=s.style.height=(Math.random()*2+1)+'px';
+s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';
+s.style.animationDelay=(Math.random()*4)+'s';s.style.animationDuration=(3+Math.random()*3)+'s';
+stars.appendChild(s);}
+
+// ---- stats ----
+const allTools=DATA.reduce((a,c)=>a+c.tools.length,0);
+document.getElementById('st-tools').textContent=allTools;
+document.getElementById('st-cats').textContent=DATA.length;
+function countUp(el,target){let cur=0;const step=Math.max(1,Math.round(target/40));
+const t=setInterval(()=>{cur+=step;if(cur>=target){cur=target;clearInterval(t)}el.textContent=cur},22)}
+countUp(document.getElementById('st-tools'),allTools);
+countUp(document.getElementById('st-cats'),DATA.length);
+
+// ---- chips ----
+const chips=document.getElementById('chips');
+let activeCat='All';
+function renderChips(){chips.innerHTML='';
+const all=document.createElement('div');all.className='chip active';all.textContent='All';all.onclick=()=>setCat('All');
+chips.appendChild(all);
+DATA.forEach(c=>{const d=document.createElement('div');d.className='chip';d.textContent=c.emoji+' '+c.cat;d.onclick=()=>setCat(c.cat);chips.appendChild(d)});}
+function setCat(c){activeCat=c;document.querySelectorAll('.chip').forEach(ch=>{
+const isAll=c==='All'&&ch.textContent==='All';
+ch.classList.toggle('active',isAll||ch.textContent===c||ch.textContent===(DATA.find(x=>x.cat===c)?.emoji+' '+c));});
+filter();}
+
+// ---- status badge ----
+function badge(st){const map={'✅':['g','native'],'⚠️':['w','workaround'],'🔗':['c','community'],'❌':['r','none']};
+const m=map[st]||['c',st];return '<span class="st '+m[0]+'">'+st+'</span>';}
+
+// ---- render ----
+const sections=document.getElementById('sections');
+function render(){
+sections.innerHTML='';
+DATA.forEach(c=>{
+const sec=document.createElement('div');sec.className='section';sec.dataset.cat=c.cat;
+sec.innerHTML='<div class="section-head"><span class="ico">'+c.emoji+'</span><h2>'+c.cat+'</h2><span class="count">'+c.tools.length+' tools</span></div><div class="grid"></div>';
+const grid=sec.querySelector('.grid');
+c.tools.forEach(t=>{
+const card=document.createElement('div');card.className='card';
+card.innerHTML='<div class="name">'+t[0]+' '+badge(t[2])+'</div><div class="desc">'+t[1]+'</div><div class="inst">$ '+t[3]+'</div>';
+card.onclick=()=>openModal(c.cat,t);
+grid.appendChild(card);});
+sections.appendChild(sec);});
+applyFilter();}
+
+// ---- filter ----
+function applyFilter(){
+const q=document.getElementById('search').value.toLowerCase().trim();
+let visible=0;
+document.querySelectorAll('.section').forEach(sec=>{
+const cat=sec.dataset.cat;const catOk=activeCat==='All'||cat===activeCat;
+let shown=0;
+sec.querySelectorAll('.card').forEach(card=>{
+const txt=card.textContent.toLowerCase();
+const ok=catOk&&(!q||txt.includes(q));
+card.style.display=ok?'':'none';if(ok)shown++;});
+sec.style.display=shown?'':'none';visible+=shown;});
+document.getElementById('empty').style.display=visible?'none':'block';
+}
+document.getElementById('search').addEventListener('input',applyFilter);
+
+// ---- modal ----
+function openModal(cat,t){
+document.getElementById('m-cat').textContent=cat;
+document.getElementById('m-name').innerHTML=t[0]+' '+badge(t[2]);
+document.getElementById('m-desc').textContent=t[1];
+document.getElementById('m-status').textContent=t[2];
+document.getElementById('m-install').textContent=t[3];
+document.getElementById('m-note').textContent=t[4]||'—';
+document.getElementById('modal').classList.add('open');
+}
+function closeModal(){document.getElementById('modal').classList.remove('open');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+
+// card glow follow
+document.addEventListener('mousemove',e=>{
+const c=e.target.closest('.card');if(!c)return;
+const r=c.getBoundingClientRect();
+c.style.setProperty('--mx',(e.clientX-r.left)+'px');
+c.style.setProperty('--my',(e.clientY-r.top)+'px');});
+
+// copy install on modal click
+document.getElementById('m-install').addEventListener('click',function(){
+navigator.clipboard&&navigator.clipboard.writeText(this.textContent);
+const t=document.getElementById('toast');t.classList.add('show');
+setTimeout(()=>t.classList.remove('show'),1500);});
+
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+if(e.isIntersecting){e.target.style.animationPlayState='running';io.unobserve(e.target)}}),{threshold:.05});
+document.querySelectorAll('.section').forEach(s=>{s.style.animationPlayState='paused';io.observe(s)});
+
+renderChips();
+render();
+</script>
+</body>
+</html>

@@ -10,18 +10,22 @@ on:
 jobs:
   verify:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Run setup verification
+      - name: Check Bash syntax (full file)
+        run: bash -n scripts/setup.sh && echo "Syntax OK"
+
+      - name: ShellCheck
+        uses: ludeeus/action-shellcheck@master
+        with:
+          scandir: './scripts'
+
+      - name: Show usage / version
         run: |
-          echo "=== Setup Script ==="
-          head -50 scripts/setup.sh
-          echo ""
-          echo "=== Checking syntax ==="
-          bash -n scripts/setup.sh && echo "Syntax OK" || echo "Syntax ERROR"
+          bash scripts/setup.sh --version
+          bash scripts/setup.sh --help | head -20
 
   test-build:
     runs-on: ubuntu-latest
