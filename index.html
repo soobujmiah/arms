@@ -84,7 +84,12 @@ main{padding:20px 0 80px}
 .st.c{background:rgba(34,211,238,.15);color:var(--cyan)}
 .st.r{background:rgba(248,113,113,.15);color:var(--red)}
 .card .desc{font-size:.86rem;color:var(--muted);line-height:1.45;margin-bottom:12px}
-.card .inst{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.76rem;color:var(--cyan);background:rgba(0,0,0,.3);padding:7px 10px;border-radius:8px;border:1px solid var(--border);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .instwrap{display:flex;align-items:center;gap:8px}
+.card .inst{flex:1;min-width:0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.76rem;color:var(--cyan);background:rgba(0,0,0,.3);padding:7px 10px;border-radius:8px;border:1px solid var(--border);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .copy{flex-shrink:0;width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:rgba(167,139,250,.12);border:1px solid var(--border);color:var(--txt);border-radius:8px;cursor:pointer;font-size:.9rem;transition:.2s}
+.card .copy:hover{background:rgba(34,211,238,.22);border-color:var(--cyan);box-shadow:0 0 12px rgba(34,211,238,.3)}
+.card .copy:active{transform:scale(.9)}
+.card .copy.copied{background:rgba(52,211,153,.25);border-color:var(--green)}
 /* footer */
 footer{border-top:1px solid var(--border);padding:44px 0 60px;margin-top:40px}
 footer .disc{background:linear-gradient(135deg,rgba(248,113,113,.08),rgba(251,191,36,.06));border:1px solid rgba(248,113,113,.25);border-radius:16px;padding:22px 24px;margin-bottom:28px}
@@ -245,8 +250,9 @@ sec.innerHTML='<div class="section-head"><span class="ico">'+c.emoji+'</span><h2
 const grid=sec.querySelector('.grid');
 c.tools.forEach(t=>{
 const card=document.createElement('div');card.className='card';
-card.innerHTML='<div class="name">'+t[0]+' '+badge(t[2])+'</div><div class="desc">'+t[1]+'</div><div class="inst">$ '+t[3]+'</div>';
+card.innerHTML='<div class="name">'+t[0]+' '+badge(t[2])+'</div><div class="desc">'+t[1]+'</div><div class="instwrap"><div class="inst">$ '+t[3]+'</div><button class="copy" title="Copy install command">⧉</button></div>';
 card.onclick=()=>openModal(c.cat,t);
+card.querySelector('.copy').onclick=(e)=>{e.stopPropagation();const b=e.currentTarget;copyText(t[3]);b.classList.add('copied');setTimeout(()=>b.classList.remove('copied'),1200);};
 grid.appendChild(card);});
 sections.appendChild(sec);});
 applyFilter();}
@@ -288,10 +294,12 @@ c.style.setProperty('--mx',(e.clientX-r.left)+'px');
 c.style.setProperty('--my',(e.clientY-r.top)+'px');});
 
 // copy install on modal click
-document.getElementById('m-install').addEventListener('click',function(){
-navigator.clipboard&&navigator.clipboard.writeText(this.textContent);
-const t=document.getElementById('toast');t.classList.add('show');
-setTimeout(()=>t.classList.remove('show'),1500);});
+function copyText(txt){
+  const done=()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500);};
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(done).catch(fallback);}else fallback();
+  function fallback(){const ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(ta);}
+}
+document.getElementById('m-install').addEventListener('click',function(){copyText(this.textContent);});
 
 // reveal on scroll
 const io=new IntersectionObserver(es=>es.forEach(e=>{

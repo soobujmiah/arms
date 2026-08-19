@@ -65,6 +65,15 @@ what works natively on arm64, and where to get it.
 
 ---
 
+## 📋 Copy-paste all install commands
+
+Every tool's install command is collected into a single copyable file —
+each command sits in its own code block (GitHub shows a **copy button** on each):
+
+👉 **[INSTALL.md](INSTALL.md) — all install commands**
+
+---
+
 ## 🚀 Quick view — the essentials
 
 | Tool | Type | arm64 |
