@@ -7,6 +7,20 @@
 
 ---
 
+## 🧠 Knowledge continuity
+
+This repository participates in Sobuj's canonical knowledge-continuity system: [`soobujmiah/skb`](https://github.com/soobujmiah/skb).
+
+For substantive work, follow this repository's own instructions first, then consult the relevant SKB context before making project-level decisions. Use only the minimum relevant context; do not blindly copy SKB content here.
+
+At the end of substantive work, review whether durable facts, decisions, constraints, important discoveries, failures, or evidence from this repository should be recorded back into SKB. Record only supported, useful knowledge; never return secrets, credentials, private payloads, routine noise, or unsupported claims.
+
+Repository-local evidence and explicit human decisions remain authoritative for this repository. SKB provides continuity and context; it does not silently override local rules or human authority.
+
+Work structure, documentation, language, tooling, tests, and implementation choices must be selected adaptively for the actual task rather than copied from a fixed template.
+
+---
+
 ## ⚠️ IMPORTANT — COPYRIGHT DISCLAIMER
 
 > **I do NOT hold any copyright over the tools listed in this repository.**
@@ -63,16 +77,12 @@ what works natively on arm64, and where to get it.
 
 **Total: ~150 tools** documented across 20 categories.
 
----
-
 ## 📋 Copy-paste all install commands
 
 Every tool's install command is collected into a single copyable file —
 each command sits in its own code block (GitHub shows a **copy button** on each):
 
 👉 **[INSTALL.md](INSTALL.md) — all install commands**
-
----
 
 ## 🚀 Quick view — the essentials
 
@@ -97,8 +107,6 @@ each command sits in its own code block (GitHub shows a **copy button** on each)
 | nRF Command Line Tools | Embedded | ✅ (10.15.4+) |
 | Android Studio | IDE | ⚠️ Workaround |
 | Android emulator | Emulator | ❌ Use device |
-
----
 
 ## 🔎 How to contribute / add tools
 
