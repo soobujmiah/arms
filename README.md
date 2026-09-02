@@ -58,7 +58,7 @@ what works natively on arm64, and where to get it.
 | 02 | Language Runtimes | 7 | [catalog/02-language-runtimes.md](catalog/02-language-runtimes.md) |
 | 03 | Build Tools | 7 | [catalog/03-build-tools.md](catalog/03-build-tools.md) |
 | 04 | IDEs & Editors | 8 | [catalog/04-ides-editors.md](catalog/04-ides-editors.md) |
-| 05 | Android SDK (arm64) | 8 | [catalog/05-android-sdk-arm64.md](catalog/05-android-sdk-arm64.md) |
+| 05 | Android SDK (arm64) | 9 | [catalog/05-android-sdk-arm64.md](catalog/05-android-sdk-arm64.md) |
 | 06 | Cross-Compilation Toolchains | 4 | [catalog/06-cross-compilation-toolchains.md](catalog/06-cross-compilation-toolchains.md) |
 | 07 | Embedded & Hardware | 3 | [catalog/07-embedded-hardware-tools.md](catalog/07-embedded-hardware-tools.md) |
 | 08 | Emulation Layers | 4 | [catalog/08-emulation-layers.md](catalog/08-emulation-layers.md) |
@@ -104,6 +104,7 @@ each command sits in its own code block (GitHub shows a **copy button** on each)
 | Box64 / FEX-Emu | x86_64 emulation | ✅ |
 | Docker / Podman | Container | ✅ |
 | lzhiyong & HomuHomu SDK | Android build-tools | 🔗 Community |
+| [ADT](https://github.com/soobujmiah/adt) | Android SDK toolchain (Linux/glibc) | ⭐ Self-built, real-device-validated |
 | nRF Command Line Tools | Embedded | ✅ (10.15.4+) |
 | Android Studio | IDE | ⚠️ Workaround |
 | Android emulator | Emulator | ❌ Use device |

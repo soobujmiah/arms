@@ -3,6 +3,23 @@
 Google's Android SDK native binaries (build-tools, platform-tools, NDK) are
 **officially x86_64-only** — but native arm64 builds exist from the community.
 
+## ⭐ ADT — self-built, real-device-validated (not third-party)
+
+Unlike everything else in this file, **[ADT](https://github.com/soobujmiah/adt)** isn't a link to someone else's build — it's a toolchain the collector built and maintains: Android SDK `build-tools`/`platform-tools` compiled from official AOSP source, targeting **Linux ARM64/glibc** (not Android/Bionic via NDK, which is what most "arm64 Android SDK" community builds actually target). It ships SHA-256-verified offline release artifacts and has been validated end-to-end on a physical device (Redmi Turbo 4 Pro): native build → sign → install → run, with a clean crash/ANR scan.
+
+| Component | Validated version | Notes |
+|-----------|-------------------|-------|
+| build-tools | 35.0.2 | aapt2/aapt/aidl/zipalign/d8/apksigner, native ARM64/glibc |
+| NDK | 27.2.12479018 | includes the fixed llvm-strip shim (NDK 28's is a trap — see repo docs) |
+| platforms | android-36 | |
+
+```bash
+git clone https://github.com/soobujmiah/adt
+cd adt && ./setup.sh install-profile validated
+```
+
+Releases (SHA-256-verified, offline-installable): https://github.com/soobujmiah/adt/releases — Apache-2.0.
+
 | Tool | arm64 status | Source |
 |------|--------------|--------|
 | **build-tools (aapt2, zipalign, d8, apksigner, aidl)** | 🔗 Community | [lzhiyong/android-sdk-tools](https://github.com/lzhiyong/android-sdk-tools/releases) · [HomuHomu833/android-sdk-custom](https://github.com/HomuHomu833/android-sdk-custom/releases) |

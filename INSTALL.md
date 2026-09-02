@@ -242,6 +242,13 @@ apt install neovim
 
 ## 🤖 Android SDK
 
+### ADT — Android SDK toolchain built for Linux ARM64/glibc (self-built)
+
+```bash
+git clone https://github.com/soobujmiah/adt
+cd adt && ./setup.sh install-profile validated
+```
+
 ### build-tools (aapt2) — Resource compiler
 
 ```bash
