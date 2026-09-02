@@ -302,9 +302,11 @@ function copyText(txt){
 document.getElementById('m-install').addEventListener('click',function(){copyText(this.textContent);});
 
 // reveal on scroll
+if('IntersectionObserver' in window){
 const io=new IntersectionObserver(es=>es.forEach(e=>{
 if(e.isIntersecting){e.target.style.animationPlayState='running';io.unobserve(e.target)}}),{threshold:.05});
 document.querySelectorAll('.section').forEach(s=>{s.style.animationPlayState='paused';io.observe(s)});
+}
 
 renderChips();
 render();
