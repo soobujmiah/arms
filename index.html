@@ -5,6 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="A curated catalog of tools that run natively on arm64 / aarch64 Linux — 145 tools across 20 categories, with install commands and sources.">
 <meta name="theme-color" content="#050507">
+<link rel="canonical" href="https://soobujmiah.github.io/arms/">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="arms — arm64 Linux Tools Store">
+<meta property="og:description" content="A curated catalog of tools that run natively on arm64 / aarch64 Linux — 145 tools across 20 categories, with install commands and sources.">
+<meta property="og:url" content="https://soobujmiah.github.io/arms/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sobuj Miah">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://soobujmiah.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="arms — arm64 Linux Tools Store">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="arms — arm64 Linux Tools Store">
+<meta name="twitter:description" content="A curated catalog of tools that run natively on arm64 / aarch64 Linux — 145 tools across 20 categories, with install commands and sources.">
+<meta name="twitter:image" content="https://soobujmiah.github.io/og.png">
 <title>arms — arm64 Linux Tools Store</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23050507'/%3E%3Ccircle cx='10.5' cy='10' r='2.4' fill='%234ade80'/%3E%3Crect x='8' y='16' width='16' height='3' rx='1.5' fill='%234ade80'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -170,6 +186,59 @@ footer a:hover{text-decoration:underline;text-underline-offset:3px}
   .logo .tag{display:none}
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://soobujmiah.github.io/arms/#website",
+      "url": "https://soobujmiah.github.io/arms/",
+      "name": "arms — arm64 Linux Tools Store",
+      "publisher": { "@id": "https://soobujmiah.github.io/#person" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://soobujmiah.github.io/arms/#software",
+      "name": "arms",
+      "description": "A curated catalog of tools that run natively on arm64 / aarch64 Linux — 145 tools across 20 categories, with install commands and sources.",
+      "url": "https://soobujmiah.github.io/arms/",
+      "operatingSystem": "Linux",
+      "applicationCategory": "DeveloperApplication",
+      "author": { "@id": "https://soobujmiah.github.io/#person" },
+      "isPartOf": { "@id": "https://soobujmiah.github.io/arms/#website" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://soobujmiah.github.io/#person",
+      "name": "Sobuj Miah",
+      "url": "https://soobujmiah.github.io/",
+      "sameAs": [
+        "https://github.com/soobujmiah",
+        "https://github.com/soobujmiah/arms"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Sobuj Miah",
+          "item": "https://soobujmiah.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "arms",
+          "item": "https://soobujmiah.github.io/arms/"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="noise"></div>
@@ -201,6 +270,12 @@ footer a:hover{text-decoration:underline;text-underline-offset:3px}
 <main class="wrap" id="store">
   <div id="sections"></div>
   <div class="empty" id="empty">No tools match your search.</div>
+<noscript>
+  <div class="wrap" style="padding:24px;color:rgba(228,226,223,0.62);font-family:JetBrains Mono,monospace;font-size:12px;line-height:1.7">
+    <p>arms catalog — 145 tools across 20 categories. Enable JavaScript for full search, filtering, and copy. Representative tools: tmux, fish, neovim, bat, eza, ripgrep, fzf, jq, btop, OpenJDK, Node.js, Python, Rust, Gradle, CMake, VS Code, ADT, Docker, PostgreSQL, nmap, Ollama, ffmpeg, nginx, restic, apt.</p>
+  </div>
+</noscript>
+
 </main>
 
 <footer><div class="wrap">
@@ -232,26 +307,26 @@ footer a:hover{text-decoration:underline;text-underline-offset:3px}
 
 <script>
 const DATA = [
-{cat:"System & Shell",emoji:"🖥️",tools:[["tmux","Terminal multiplexer","✅","apt install tmux","static v3.5a"],["fish","Friendly interactive shell","✅","apt install fish","v4.8.0"],["neovim","Vim-fork editor","✅","apt install neovim","glibc 2.17"],["bat","cat clone w/ syntax highlighting","✅","apt install bat","Rust"],["eza","Modern ls replacement","✅","apt install eza","Rust"],["fd","Fast find alternative","✅","apt install fd-find","Rust"],["ripgrep","Fast regex search","✅","apt install ripgrep","Rust"],["fzf","Fuzzy finder","✅","apt install fzf","Go"],["jq","JSON processor","✅","apt install jq","C"],["btop","Resource monitor","✅","apt install btop","C++"],["zoxide","Smarter cd","✅","apt install zoxide","Rust"],["starship","Cross-shell prompt","✅","curl -sS https://starship.rs/install.sh | sh","Rust"],["yazi","Async file manager","✅","apt install yazi","Rust"],["duf","Better df","✅","apt install duf","Go"],["delta","Syntax-highlighting diff","✅","apt install git-delta","Rust"]]},
-{cat:"Language Runtimes",emoji:"☕",tools:[["OpenJDK 17/21","Java runtime & compiler","✅","apt install openjdk-17-jdk","Temurin/Adoptium"],["Node.js","JavaScript runtime","✅","curl -fsSL https://deb.nodesource.com/setup_20.sh | sudo bash -","JS"],["Python 3","Python interpreter","✅","apt install python3 python3-pip",""],["Go","Compiled language","✅","apt install golang-go","official tarball"],["Rust","Compiled language","✅","curl https://sh.rustup.rs -sSf | sh","rustup"],["GCC/Clang/LLVM","C/C++ toolchain","✅","apt install gcc g++ clang llvm",""],["Dart","Dart SDK","✅","via Flutter SDK","Flutter 3.0+"]]},
-{cat:"Build Tools",emoji:"🔨",tools:[["Gradle","JVM build (Android/Java/Kotlin)","✅","sdk install gradle","pure JVM"],["Maven","JVM build","✅","apt install maven","pure JVM"],["CMake","C/C++ meta-build","✅","apt install cmake",""],["Make","Classic build","✅","apt install make",""],["Ninja","Fast build backend","✅","apt install ninja-build",""],["Bazel","Google build system","✅","apt install bazel-bootstrap","linux-arm64"],["Meson","Python build system","✅","apt install meson",""]]},
-{cat:"IDEs & Editors",emoji:"💻",tools:[["VS Code","Code editor","✅","code.visualstudio.com → arm64","official"],["IntelliJ IDEA","Java/Kotlin IDE","✅","jetbrains.com → aarch64","2022.3+"],["PyCharm/WebStorm/CLion","JetBrains IDEs","✅","jetbrains.com downloads","aarch64"],["JetBrains Runtime","JBR","✅","github.com/JetBrains/JetBrainsRuntime","linux-aarch64"],["Eclipse/NetBeans","Java IDEs","✅","installer (JVM)",""],["Arduino IDE 2.x","Embedded IDE","⚠️","community arm64 build","matu6968"],["Android Studio","Android IDE","⚠️","workaround (merge IntelliJ aarch64)","no official"],["Neovim","Terminal editor","✅","apt install neovim",""]]},
+{cat:"System & Shell",emoji:"🖥️",tools:[["tmux","Terminal multiplexer","✅","sudo apt install tmux","static v3.5a"],["fish","Friendly interactive shell","✅","sudo apt install fish","v4.8.0"],["neovim","Vim-fork editor","✅","sudo apt install neovim","glibc 2.17"],["bat","cat clone w/ syntax highlighting","✅","sudo apt install bat","Rust"],["eza","Modern ls replacement","✅","sudo apt install eza","Rust"],["fd","Fast find alternative","✅","sudo apt install fd-find","Rust"],["ripgrep","Fast regex search","✅","sudo apt install ripgrep","Rust"],["fzf","Fuzzy finder","✅","sudo apt install fzf","Go"],["jq","JSON processor","✅","sudo apt install jq","C"],["btop","Resource monitor","✅","sudo apt install btop","C++"],["zoxide","Smarter cd","✅","sudo apt install zoxide","Rust"],["starship","Cross-shell prompt","✅","curl -sS https://starship.rs/install.sh | sh","Rust"],["yazi","Async file manager","✅","sudo apt install yazi","Rust"],["duf","Better df","✅","sudo apt install duf","Go"],["delta","Syntax-highlighting diff","✅","sudo apt install git-delta","Rust"]]},
+{cat:"Language Runtimes",emoji:"☕",tools:[["OpenJDK 17/21","Java runtime & compiler","✅","sudo apt install openjdk-17-jdk","Temurin/Adoptium"],["Node.js","JavaScript runtime","✅","curl -fsSL https://deb.nodesource.com/setup_20.sh | sudo bash -","JS"],["Python 3","Python interpreter","✅","sudo apt install python3 python3-pip",""],["Go","Compiled language","✅","sudo apt install golang-go","official tarball"],["Rust","Compiled language","✅","curl https://sh.rustup.rs -sSf | sh","rustup"],["GCC/Clang/LLVM","C/C++ toolchain","✅","sudo apt install gcc g++ clang llvm",""],["Dart","Dart SDK","✅","via Flutter SDK","Flutter 3.0+"]]},
+{cat:"Build Tools",emoji:"🔨",tools:[["Gradle","JVM build (Android/Java/Kotlin)","✅","sdk install gradle","pure JVM"],["Maven","JVM build","✅","sudo apt install maven","pure JVM"],["CMake","C/C++ meta-build","✅","sudo apt install cmake",""],["Make","Classic build","✅","sudo apt install make",""],["Ninja","Fast build backend","✅","sudo apt install ninja-build",""],["Bazel","Google build system","✅","sudo apt install bazel-bootstrap","linux-arm64"],["Meson","Python build system","✅","sudo apt install meson",""]]},
+{cat:"IDEs & Editors",emoji:"💻",tools:[["VS Code","Code editor","✅","code.visualstudio.com → arm64","official"],["IntelliJ IDEA","Java/Kotlin IDE","✅","jetbrains.com → aarch64","2022.3+"],["PyCharm/WebStorm/CLion","JetBrains IDEs","✅","jetbrains.com downloads","aarch64"],["JetBrains Runtime","JBR","✅","github.com/JetBrains/JetBrainsRuntime","linux-aarch64"],["Eclipse/NetBeans","Java IDEs","✅","installer (JVM)",""],["Arduino IDE 2.x","Embedded IDE","⚠️","community arm64 build","matu6968"],["Android Studio","Android IDE","⚠️","workaround (merge IntelliJ aarch64)","no official"],["Neovim","Terminal editor","✅","sudo apt install neovim",""]]},
 {cat:"Android SDK",emoji:"🤖",tools:[["ADT","Self-built Android SDK toolchain for Linux ARM64/glibc, real-device-validated","✅","git clone https://github.com/soobujmiah/adt && cd adt && ./setup.sh install-profile validated","self-built, Apache-2.0, github.com/soobujmiah/adt"],["build-tools (aapt2)","Resource compiler","🔗","lzhiyong/HomuHomu releases","community arm64"],["platform-tools (adb)","Device bridge","🔗","lzhiyong / AndroidIDE builds","community arm64"],["NDK","Native toolchain","🔗","HomuHomu833/android-ndk-custom r29","aarch64"],["cmdline-tools (sdkmanager)","SDK manager","✅","commandlinetools-linux zip","shell+Java"],["platforms android.jar","API stubs","✅","arch-independent JAR",""],["APK Workbench","ARM64 SDK/NDK catalog","🔗","github.com/Denuo-Web/APK-Workbench","Rust"],["Emulator","AVD emulation","❌","use physical device","experimental only"],["SecFathy binaries","NDK compilers + coreutils","🔗","github.com/SecFathy/Android-arm64-Binaries","66 tools"]]},
-{cat:"Cross-Compilation",emoji:"🎯",tools:[["gcc-aarch64-linux-gnu","GNU C compiler → aarch64","✅","apt install gcc-aarch64-linux-gnu",""],["binutils-aarch64-linux-gnu","Assembler/linker → aarch64","✅","apt install binutils-aarch64-linux-gnu",""],["gdb-multiarch","Multi-arch debugger","✅","apt install gdb-multiarch",""],["Xcode clang (macOS)","arm64 toolchain","✅","xcode-select --install","Apple Silicon"]]},
+{cat:"Cross-Compilation",emoji:"🎯",tools:[["gcc-aarch64-linux-gnu","GNU C compiler → aarch64","✅","sudo apt install gcc-aarch64-linux-gnu",""],["binutils-aarch64-linux-gnu","Assembler/linker → aarch64","✅","sudo apt install binutils-aarch64-linux-gnu",""],["gdb-multiarch","Multi-arch debugger","✅","sudo apt install gdb-multiarch",""],["Xcode clang (macOS)","arm64 toolchain","✅","xcode-select --install","Apple Silicon"]]},
 {cat:"Embedded & Hardware",emoji:"🔌",tools:[["nRF Command Line Tools","nrfjprog/mergehex flasher","✅","nordicsemi.com → arm64","10.15.4+"],["SEGGER J-Link","Debug probe software","✅","segger.com","7.x arm64"],["GNU ARM Embedded","arm-none-eabi-gcc","✅","developer.arm.com","aarch64 build"]]},
-{cat:"Emulation Layers",emoji:"🔁",tools:[["Box64","Run x86_64 binaries on arm64","✅","build from ptitSeb/box64","dynarec"],["Box86","Run x86 (32-bit) binaries","✅","ptitSeb/box86",""],["FEX-Emu","Fast x86/x86_64 emulator","✅","fex-emu.com",""],["QEMU user-static","Foreign-arch containers","✅","apt install qemu-user-static",""]]},
-{cat:"Containers",emoji:"📦",tools:[["Docker Engine","Container runtime","✅","curl -fsSL https://get.docker.com | sh","arm64"],["Podman","Rootless containers","✅","apt install podman","aarch64"],["Docker Buildx","Multi-arch builds","✅","docker buildx plugin",""],["containerd/nerdctl","Container runtime","✅","apt install containerd",""]]},
-{cat:"Databases & Services",emoji:"🗄️",tools:[["PostgreSQL","Relational DB","✅","apt install postgresql",""],["MySQL","Relational DB","✅","apt install mysql-server",""],["MariaDB","Relational DB","✅","apt install mariadb-server",""],["SQLite","Embedded DB","✅","apt install sqlite3",""],["Redis","In-memory store","✅","apt install redis-server",""],["MongoDB","Document DB","✅","official arm64 tarball",""],["RabbitMQ","Message broker","✅","apt install rabbitmq-server","Erlang"],["Apache Kafka","Stream platform","✅","JVM — arm64 JDK",""]]},
-{cat:"Dev Infrastructure",emoji:"⚙️",tools:[["Git","Version control","✅","apt install git",""],["GitHub CLI (gh)","GitHub from terminal","✅","official arm64 release",""],["Docker Compose","Compose plugin","✅","apt install docker-compose-plugin",""],["kubectl","K8s CLI","✅","official arm64 release",""],["Helm","K8s package manager","✅","official arm64 release",""],["k3s","Lightweight Kubernetes","✅","k3s ships arm64",""],["Terraform","IaC","✅","official arm64 release",""],["Ansible","Config automation","✅","apt install ansible","Python"],["dotTrace CLI",".NET profiler","⚠️","NuGet windows-arm64","2026.2.x"]]},
+{cat:"Emulation Layers",emoji:"🔁",tools:[["Box64","Run x86_64 binaries on arm64","✅","build from ptitSeb/box64","dynarec"],["Box86","Run x86 (32-bit) binaries","✅","ptitSeb/box86",""],["FEX-Emu","Fast x86/x86_64 emulator","✅","fex-emu.com",""],["QEMU user-static","Foreign-arch containers","✅","sudo apt install qemu-user-static",""]]},
+{cat:"Containers",emoji:"📦",tools:[["Docker Engine","Container runtime","✅","curl -fsSL https://get.docker.com | sh","arm64"],["Podman","Rootless containers","✅","sudo apt install podman","aarch64"],["Docker Buildx","Multi-arch builds","✅","docker buildx plugin",""],["containerd/nerdctl","Container runtime","✅","sudo apt install containerd",""]]},
+{cat:"Databases & Services",emoji:"🗄️",tools:[["PostgreSQL","Relational DB","✅","sudo apt install postgresql",""],["MySQL","Relational DB","✅","sudo apt install mysql-server",""],["MariaDB","Relational DB","✅","sudo apt install mariadb-server",""],["SQLite","Embedded DB","✅","sudo apt install sqlite3",""],["Redis","In-memory store","✅","sudo apt install redis-server",""],["MongoDB","Document DB","✅","official arm64 tarball",""],["RabbitMQ","Message broker","✅","sudo apt install rabbitmq-server","Erlang"],["Apache Kafka","Stream platform","✅","JVM — arm64 JDK",""]]},
+{cat:"Dev Infrastructure",emoji:"⚙️",tools:[["Git","Version control","✅","sudo apt install git",""],["GitHub CLI (gh)","GitHub from terminal","✅","official arm64 release",""],["Docker Compose","Compose plugin","✅","sudo apt install docker-compose-plugin",""],["kubectl","K8s CLI","✅","official arm64 release",""],["Helm","K8s package manager","✅","official arm64 release",""],["k3s","Lightweight Kubernetes","✅","k3s ships arm64",""],["Terraform","IaC","✅","official arm64 release",""],["Ansible","Config automation","✅","sudo apt install ansible","Python"],["dotTrace CLI",".NET profiler","⚠️","NuGet windows-arm64","2026.2.x"]]},
 {cat:"On-Device Desktop",emoji:"📱",tools:[["Termux","Linux userspace on Android","✅","f-droid.org → Termux",""],["proot-distro","Rootless distro (PRoot)","✅","pkg install proot-distro",""],["Termux:X11","GPU-accelerated X server","✅","GitHub arm64 APK","Turnip/Zink"],["DroidDesk","Turnkey desktop kit","✅","ramdi.fr writeup",""],["proot-distro-scripts","1-command desktops","✅","github.com/01101010110","XFCE/KDE"]]},
-{cat:"Networking & VPN",emoji:"🌐",tools:[["Tailscale","Zero-config mesh VPN","✅","curl -fsSL https://tailscale.com/install.sh | sh","WireGuard"],["WireGuard","Kernel VPN","✅","apt install wireguard",""],["OpenVPN","TLS VPN","✅","apt install openvpn",""],["Mosh","Resilient mobile shell","✅","apt install mosh",""],["PiVPN","1-command VPN server","✅","curl -L https://install.pivpn.io | bash",""],["RaspAP","Wi-Fi AP + VPN GUI","✅","curl -sL https://install.raspap.com | bash",""]]},
-{cat:"Security",emoji:"🛡️",tools:[["nmap","Network scanner","✅","apt install nmap",""],["Wireshark","Packet analyzer","✅","apt install wireshark",""],["tcpdump","CLI packet capture","✅","apt install tcpdump",""],["aircrack-ng","Wireless audit suite","✅","apt install aircrack-ng",""],["Kismet","Wireless discovery","✅","apt install kismet",""],["bettercap","Network MITM framework","✅","apt install bettercap",""],["hashcat","Password recovery","✅","apt install hashcat",""],["John the Ripper","Password cracker","✅","apt install john",""],["Metasploit","Pentest framework","✅","apt install metasploit-framework",""],["hydra","Login brute-forcer","✅","apt install hydra",""],["sqlmap","SQL injection tool","✅","apt install sqlmap",""],["nikto","Web scanner","✅","apt install nikto",""]]},
+{cat:"Networking & VPN",emoji:"🌐",tools:[["Tailscale","Zero-config mesh VPN","✅","curl -fsSL https://tailscale.com/install.sh | sh","WireGuard"],["WireGuard","Kernel VPN","✅","sudo apt install wireguard",""],["OpenVPN","TLS VPN","✅","sudo apt install openvpn",""],["Mosh","Resilient mobile shell","✅","sudo apt install mosh",""],["PiVPN","1-command VPN server","✅","curl -L https://install.pivpn.io | bash",""],["RaspAP","Wi-Fi AP + VPN GUI","✅","curl -sL https://install.raspap.com | bash",""]]},
+{cat:"Security",emoji:"🛡️",tools:[["nmap","Network scanner","✅","sudo apt install nmap",""],["Wireshark","Packet analyzer","✅","sudo apt install wireshark",""],["tcpdump","CLI packet capture","✅","sudo apt install tcpdump",""],["aircrack-ng","Wireless audit suite","✅","sudo apt install aircrack-ng",""],["Kismet","Wireless discovery","✅","sudo apt install kismet",""],["bettercap","Network MITM framework","✅","sudo apt install bettercap",""],["hashcat","Password recovery","✅","sudo apt install hashcat",""],["John the Ripper","Password cracker","✅","sudo apt install john",""],["Metasploit","Pentest framework","✅","sudo apt install metasploit-framework",""],["hydra","Login brute-forcer","✅","sudo apt install hydra",""],["sqlmap","SQL injection tool","✅","sudo apt install sqlmap",""],["nikto","Web scanner","✅","sudo apt install nikto",""]]},
 {cat:"AI & Machine Learning",emoji:"🧠",tools:[["Ollama","Local LLM server","✅","curl -fsSL https://ollama.com/install.sh | sh","CPU"],["llama.cpp","CPU-first inference","✅","cmake -B build -DGGML_NATIVE=ON","GGUF"],["whisper.cpp","Speech-to-text","✅","git clone ggml-org/whisper.cpp","C++"]]},
-{cat:"Media & Graphics",emoji:"🎨",tools:[["ffmpeg","Transcode/stream media","✅","apt install ffmpeg",""],["mpv","Video player","✅","apt install mpv","--hwdec=drm-copy"],["ImageMagick","Image manipulation","✅","apt install imagemagick",""],["sox","Audio processing","✅","apt install sox",""],["GIMP","Image editor","✅","GIMP-*-aarch64.AppImage","3.2.x"],["Blender","3D creation suite","✅","apt install blender","5.x"],["Inkscape","Vector graphics","✅","apt install inkscape",""],["Krita","Digital painting","✅","AppImage/Flatpak",""],["LibreOffice","Office suite","✅","apt install libreoffice",""],["Kdenlive","Video editor","✅","apt install kdenlive",""],["Shotcut","Video editor","✅","AppImage",""],["OBS Studio","Live streaming","✅","apt install obs-studio",""],["Audacity","Audio editor","✅","apt install audacity",""],["digiKam","Photo manager","✅","AppImage",""]]},
+{cat:"Media & Graphics",emoji:"🎨",tools:[["ffmpeg","Transcode/stream media","✅","sudo apt install ffmpeg",""],["mpv","Video player","✅","sudo apt install mpv","--hwdec=drm-copy"],["ImageMagick","Image manipulation","✅","sudo apt install imagemagick",""],["sox","Audio processing","✅","sudo apt install sox",""],["GIMP","Image editor","✅","GIMP-*-aarch64.AppImage","3.2.x"],["Blender","3D creation suite","✅","sudo apt install blender","5.x"],["Inkscape","Vector graphics","✅","sudo apt install inkscape",""],["Krita","Digital painting","✅","AppImage/Flatpak",""],["LibreOffice","Office suite","✅","sudo apt install libreoffice",""],["Kdenlive","Video editor","✅","sudo apt install kdenlive",""],["Shotcut","Video editor","✅","AppImage",""],["OBS Studio","Live streaming","✅","sudo apt install obs-studio",""],["Audacity","Audio editor","✅","sudo apt install audacity",""],["digiKam","Photo manager","✅","AppImage",""]]},
 {cat:"Monitoring",emoji:"📈",tools:[["Prometheus","Time-series DB","✅","prometheus-*-linux-arm64.tar.gz",":9090"],["Grafana","Dashboards","✅","grafana.com arm64 .deb",":3000"],["node_exporter","System metrics","✅","node_exporter-*-linux-arm64.tar.gz",":9100"],["Alertmanager","Alert routing","✅","Prometheus release",":9093"],["ntopng","Traffic analyzer","✅","packages.ntop.org/RaspberryPI",""]]},
-{cat:"Web Servers",emoji:"🌍",tools:[["nginx","Reverse proxy / web server","✅","apt install nginx","1.31"],["Caddy","Auto-HTTPS web server","✅","apt install caddy","2.11"],["Traefik","Cloud-native ingress","✅","traefik_*_linux_arm64.tar.gz","3.x"],["Apache httpd","Classic web server","✅","apt install apache2",""],["lighttpd","Lightweight server","✅","apt install lighttpd",""]]},
-{cat:"Backup & Sync",emoji:"💾",tools:[["restic","Encrypted dedup backup","✅","apt install restic","Go"],["BorgBackup","SSH compressed backup","✅","apt install borgbackup",""],["Kopia","Dedup backup + GUI","✅","linux-arm64 release",""],["rclone","Sync 50+ cloud backends","✅","apt install rclone",""],["rsync","Incremental sync","✅","apt install rsync",""],["Timeshift","System snapshots","✅","apt install timeshift",""],["duplicity","Encrypted incremental","✅","apt install duplicity",""]]},
-{cat:"Package Managers",emoji:"📥",tools:[["apt","Debian/Ubuntu/RPi OS","✅","built-in",""],["pacman","Arch Linux ARM","✅","built-in",""],["dnf","Fedora arm64","✅","built-in",""],["apk","Alpine arm64","✅","built-in",""],["pkg","Termux","✅","built-in",""],["Nix","Reproducible manager","✅","sh <(curl -L https://nixos.org/nix/install)",""],["Flatpak","Sandboxed apps","✅","apt install flatpak",""],["Snap","Universal packages","✅","apt install snapd",""],["AppImage","Portable single-file","✅","download *-aarch64.AppImage",""],["Homebrew","macOS-style brew","⚠️","x86_64-only on Linux","unsupported arm64"]]}
+{cat:"Web Servers",emoji:"🌍",tools:[["nginx","Reverse proxy / web server","✅","sudo apt install nginx","1.31"],["Caddy","Auto-HTTPS web server","✅","sudo apt install caddy","2.11"],["Traefik","Cloud-native ingress","✅","traefik_*_linux_arm64.tar.gz","3.x"],["Apache httpd","Classic web server","✅","sudo apt install apache2",""],["lighttpd","Lightweight server","✅","sudo apt install lighttpd",""]]},
+{cat:"Backup & Sync",emoji:"💾",tools:[["restic","Encrypted dedup backup","✅","sudo apt install restic","Go"],["BorgBackup","SSH compressed backup","✅","sudo apt install borgbackup",""],["Kopia","Dedup backup + GUI","✅","linux-arm64 release",""],["rclone","Sync 50+ cloud backends","✅","sudo apt install rclone",""],["rsync","Incremental sync","✅","sudo apt install rsync",""],["Timeshift","System snapshots","✅","sudo apt install timeshift",""],["duplicity","Encrypted incremental","✅","sudo apt install duplicity",""]]},
+{cat:"Package Managers",emoji:"📥",tools:[["apt","Debian/Ubuntu/RPi OS","✅","built-in",""],["pacman","Arch Linux ARM","✅","built-in",""],["dnf","Fedora arm64","✅","built-in",""],["apk","Alpine arm64","✅","built-in",""],["pkg","Termux","✅","built-in",""],["Nix","Reproducible manager","✅","sh <(curl -L https://nixos.org/nix/install)",""],["Flatpak","Sandboxed apps","✅","sudo apt install flatpak",""],["Snap","Universal packages","✅","sudo apt install snapd",""],["AppImage","Portable single-file","✅","download *-aarch64.AppImage",""],["Homebrew","macOS-style brew","⚠️","x86_64-only on Linux","unsupported arm64"]]}
 ];
 
 // ---- stats ----

@@ -11,67 +11,67 @@
 ### tmux — Terminal multiplexer
 
 ```bash
-apt install tmux
+sudo apt install tmux
 ```
 
 ### fish — Friendly interactive shell
 
 ```bash
-apt install fish
+sudo apt install fish
 ```
 
 ### neovim — Vim-fork editor
 
 ```bash
-apt install neovim
+sudo apt install neovim
 ```
 
 ### bat — cat clone w/ syntax highlighting
 
 ```bash
-apt install bat
+sudo apt install bat
 ```
 
 ### eza — Modern ls replacement
 
 ```bash
-apt install eza
+sudo apt install eza
 ```
 
 ### fd — Fast find alternative
 
 ```bash
-apt install fd-find
+sudo apt install fd-find
 ```
 
 ### ripgrep — Fast regex search
 
 ```bash
-apt install ripgrep
+sudo apt install ripgrep
 ```
 
 ### fzf — Fuzzy finder
 
 ```bash
-apt install fzf
+sudo apt install fzf
 ```
 
 ### jq — JSON processor
 
 ```bash
-apt install jq
+sudo apt install jq
 ```
 
 ### btop — Resource monitor
 
 ```bash
-apt install btop
+sudo apt install btop
 ```
 
 ### zoxide — Smarter cd
 
 ```bash
-apt install zoxide
+sudo apt install zoxide
 ```
 
 ### starship — Cross-shell prompt
@@ -83,19 +83,19 @@ curl -sS https://starship.rs/install.sh | sh
 ### yazi — Async file manager
 
 ```bash
-apt install yazi
+sudo apt install yazi
 ```
 
 ### duf — Better df
 
 ```bash
-apt install duf
+sudo apt install duf
 ```
 
 ### delta — Syntax-highlighting diff
 
 ```bash
-apt install git-delta
+sudo apt install git-delta
 ```
 
 
@@ -104,7 +104,7 @@ apt install git-delta
 ### OpenJDK 17/21 — Java runtime & compiler
 
 ```bash
-apt install openjdk-17-jdk
+sudo apt install openjdk-17-jdk
 ```
 
 ### Node.js — JavaScript runtime
@@ -116,13 +116,13 @@ curl -fsSL https://deb.nodesource.com/setup_20.sh | sudo bash -
 ### Python 3 — Python interpreter
 
 ```bash
-apt install python3 python3-pip
+sudo apt install python3 python3-pip
 ```
 
 ### Go — Compiled language
 
 ```bash
-apt install golang-go
+sudo apt install golang-go
 ```
 
 ### Rust — Compiled language
@@ -134,7 +134,7 @@ curl https://sh.rustup.rs -sSf | sh
 ### GCC/Clang/LLVM — C/C++ toolchain
 
 ```bash
-apt install gcc g++ clang llvm
+sudo apt install gcc g++ clang llvm
 ```
 
 ### Dart — Dart SDK
@@ -155,37 +155,37 @@ sdk install gradle
 ### Maven — JVM build
 
 ```bash
-apt install maven
+sudo apt install maven
 ```
 
 ### CMake — C/C++ meta-build
 
 ```bash
-apt install cmake
+sudo apt install cmake
 ```
 
 ### Make — Classic build
 
 ```bash
-apt install make
+sudo apt install make
 ```
 
 ### Ninja — Fast build backend
 
 ```bash
-apt install ninja-build
+sudo apt install ninja-build
 ```
 
 ### Bazel — Google build system
 
 ```bash
-apt install bazel-bootstrap
+sudo apt install bazel-bootstrap
 ```
 
 ### Meson — Python build system
 
 ```bash
-apt install meson
+sudo apt install meson
 ```
 
 
@@ -236,7 +236,7 @@ workaround (merge IntelliJ aarch64)
 ### Neovim — Terminal editor
 
 ```bash
-apt install neovim
+sudo apt install neovim
 ```
 
 
@@ -303,19 +303,19 @@ github.com/SecFathy/Android-arm64-Binaries
 ### gcc-aarch64-linux-gnu — GNU C compiler → aarch64
 
 ```bash
-apt install gcc-aarch64-linux-gnu
+sudo apt install gcc-aarch64-linux-gnu
 ```
 
 ### binutils-aarch64-linux-gnu — Assembler/linker → aarch64
 
 ```bash
-apt install binutils-aarch64-linux-gnu
+sudo apt install binutils-aarch64-linux-gnu
 ```
 
 ### gdb-multiarch — Multi-arch debugger
 
 ```bash
-apt install gdb-multiarch
+sudo apt install gdb-multiarch
 ```
 
 ### Xcode clang (macOS) — arm64 toolchain
@@ -369,7 +369,7 @@ fex-emu.com
 ### QEMU user-static — Foreign-arch containers
 
 ```bash
-apt install qemu-user-static
+sudo apt install qemu-user-static
 ```
 
 
@@ -384,7 +384,7 @@ curl -fsSL https://get.docker.com | sh
 ### Podman — Rootless containers
 
 ```bash
-apt install podman
+sudo apt install podman
 ```
 
 ### Docker Buildx — Multi-arch builds
@@ -396,7 +396,7 @@ docker buildx plugin
 ### containerd/nerdctl — Container runtime
 
 ```bash
-apt install containerd
+sudo apt install containerd
 ```
 
 
@@ -405,31 +405,31 @@ apt install containerd
 ### PostgreSQL — Relational DB
 
 ```bash
-apt install postgresql
+sudo apt install postgresql
 ```
 
 ### MySQL — Relational DB
 
 ```bash
-apt install mysql-server
+sudo apt install mysql-server
 ```
 
 ### MariaDB — Relational DB
 
 ```bash
-apt install mariadb-server
+sudo apt install mariadb-server
 ```
 
 ### SQLite — Embedded DB
 
 ```bash
-apt install sqlite3
+sudo apt install sqlite3
 ```
 
 ### Redis — In-memory store
 
 ```bash
-apt install redis-server
+sudo apt install redis-server
 ```
 
 ### MongoDB — Document DB
@@ -441,7 +441,7 @@ official arm64 tarball
 ### RabbitMQ — Message broker
 
 ```bash
-apt install rabbitmq-server
+sudo apt install rabbitmq-server
 ```
 
 ### Apache Kafka — Stream platform
@@ -456,7 +456,7 @@ JVM — arm64 JDK
 ### Git — Version control
 
 ```bash
-apt install git
+sudo apt install git
 ```
 
 ### GitHub CLI (gh) — GitHub from terminal
@@ -468,7 +468,7 @@ official arm64 release
 ### Docker Compose — Compose plugin
 
 ```bash
-apt install docker-compose-plugin
+sudo apt install docker-compose-plugin
 ```
 
 ### kubectl — K8s CLI
@@ -498,7 +498,7 @@ official arm64 release
 ### Ansible — Config automation
 
 ```bash
-apt install ansible
+sudo apt install ansible
 ```
 
 ### dotTrace CLI — .NET profiler
@@ -552,19 +552,19 @@ curl -fsSL https://tailscale.com/install.sh | sh
 ### WireGuard — Kernel VPN
 
 ```bash
-apt install wireguard
+sudo apt install wireguard
 ```
 
 ### OpenVPN — TLS VPN
 
 ```bash
-apt install openvpn
+sudo apt install openvpn
 ```
 
 ### Mosh — Resilient mobile shell
 
 ```bash
-apt install mosh
+sudo apt install mosh
 ```
 
 ### PiVPN — 1-command VPN server
@@ -585,73 +585,73 @@ curl -sL https://install.raspap.com | bash
 ### nmap — Network scanner
 
 ```bash
-apt install nmap
+sudo apt install nmap
 ```
 
 ### Wireshark — Packet analyzer
 
 ```bash
-apt install wireshark
+sudo apt install wireshark
 ```
 
 ### tcpdump — CLI packet capture
 
 ```bash
-apt install tcpdump
+sudo apt install tcpdump
 ```
 
 ### aircrack-ng — Wireless audit suite
 
 ```bash
-apt install aircrack-ng
+sudo apt install aircrack-ng
 ```
 
 ### Kismet — Wireless discovery
 
 ```bash
-apt install kismet
+sudo apt install kismet
 ```
 
 ### bettercap — Network MITM framework
 
 ```bash
-apt install bettercap
+sudo apt install bettercap
 ```
 
 ### hashcat — Password recovery
 
 ```bash
-apt install hashcat
+sudo apt install hashcat
 ```
 
 ### John the Ripper — Password cracker
 
 ```bash
-apt install john
+sudo apt install john
 ```
 
 ### Metasploit — Pentest framework
 
 ```bash
-apt install metasploit-framework
+sudo apt install metasploit-framework
 ```
 
 ### hydra — Login brute-forcer
 
 ```bash
-apt install hydra
+sudo apt install hydra
 ```
 
 ### sqlmap — SQL injection tool
 
 ```bash
-apt install sqlmap
+sudo apt install sqlmap
 ```
 
 ### nikto — Web scanner
 
 ```bash
-apt install nikto
+sudo apt install nikto
 ```
 
 
@@ -681,25 +681,25 @@ git clone ggml-org/whisper.cpp
 ### ffmpeg — Transcode/stream media
 
 ```bash
-apt install ffmpeg
+sudo apt install ffmpeg
 ```
 
 ### mpv — Video player
 
 ```bash
-apt install mpv
+sudo apt install mpv
 ```
 
 ### ImageMagick — Image manipulation
 
 ```bash
-apt install imagemagick
+sudo apt install imagemagick
 ```
 
 ### sox — Audio processing
 
 ```bash
-apt install sox
+sudo apt install sox
 ```
 
 ### GIMP — Image editor
@@ -711,13 +711,13 @@ GIMP-*-aarch64.AppImage
 ### Blender — 3D creation suite
 
 ```bash
-apt install blender
+sudo apt install blender
 ```
 
 ### Inkscape — Vector graphics
 
 ```bash
-apt install inkscape
+sudo apt install inkscape
 ```
 
 ### Krita — Digital painting
@@ -729,13 +729,13 @@ AppImage/Flatpak
 ### LibreOffice — Office suite
 
 ```bash
-apt install libreoffice
+sudo apt install libreoffice
 ```
 
 ### Kdenlive — Video editor
 
 ```bash
-apt install kdenlive
+sudo apt install kdenlive
 ```
 
 ### Shotcut — Video editor
@@ -747,13 +747,13 @@ AppImage
 ### OBS Studio — Live streaming
 
 ```bash
-apt install obs-studio
+sudo apt install obs-studio
 ```
 
 ### Audacity — Audio editor
 
 ```bash
-apt install audacity
+sudo apt install audacity
 ```
 
 ### digiKam — Photo manager
@@ -801,13 +801,13 @@ packages.ntop.org/RaspberryPI
 ### nginx — Reverse proxy / web server
 
 ```bash
-apt install nginx
+sudo apt install nginx
 ```
 
 ### Caddy — Auto-HTTPS web server
 
 ```bash
-apt install caddy
+sudo apt install caddy
 ```
 
 ### Traefik — Cloud-native ingress
@@ -819,13 +819,13 @@ traefik_*_linux_arm64.tar.gz
 ### Apache httpd — Classic web server
 
 ```bash
-apt install apache2
+sudo apt install apache2
 ```
 
 ### lighttpd — Lightweight server
 
 ```bash
-apt install lighttpd
+sudo apt install lighttpd
 ```
 
 
@@ -834,13 +834,13 @@ apt install lighttpd
 ### restic — Encrypted dedup backup
 
 ```bash
-apt install restic
+sudo apt install restic
 ```
 
 ### BorgBackup — SSH compressed backup
 
 ```bash
-apt install borgbackup
+sudo apt install borgbackup
 ```
 
 ### Kopia — Dedup backup + GUI
@@ -852,25 +852,25 @@ linux-arm64 release
 ### rclone — Sync 50+ cloud backends
 
 ```bash
-apt install rclone
+sudo apt install rclone
 ```
 
 ### rsync — Incremental sync
 
 ```bash
-apt install rsync
+sudo apt install rsync
 ```
 
 ### Timeshift — System snapshots
 
 ```bash
-apt install timeshift
+sudo apt install timeshift
 ```
 
 ### duplicity — Encrypted incremental
 
 ```bash
-apt install duplicity
+sudo apt install duplicity
 ```
 
 
@@ -915,13 +915,13 @@ sh <(curl -L https://nixos.org/nix/install)
 ### Flatpak — Sandboxed apps
 
 ```bash
-apt install flatpak
+sudo apt install flatpak
 ```
 
 ### Snap — Universal packages
 
 ```bash
-apt install snapd
+sudo apt install snapd
 ```
 
 ### AppImage — Portable single-file
