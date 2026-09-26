@@ -1,13 +1,13 @@
 schema_version: 1
 project_id: arms
 repository: soobujmiah/arms
-generated_at: '2026-09-25T14:20:24Z'
+generated_at: '2026-09-26T21:50:01Z'
 generated_by: tools/repo_knowledge collect
-version: 43340c7
+version: 28e2807
 head:
-  commit: 43340c7afdcb99612c47b84fbd9f64c79e34d6fb
+  commit: 28e280738f7ac65af52fe810acd4783496196f3d
   branch: main
-  committed_at: '2026-09-25T14:18:03Z'
+  committed_at: '2026-09-26T21:47:35Z'
 phases:
   source: not_configured
   completed: []
@@ -15,19 +15,25 @@ phases:
   next: null
 build:
   status: passed
-  run_id: '36146555245'
-  at: '2026-09-25T14:20:24Z'
+  run_id: '36274136022'
+  commit: 28e280738f7ac65af52fe810acd4783496196f3d
+  run_attempt: '1'
+  at: '2026-09-26T21:50:01Z'
+  timestamp_source: observed
 test:
   status: passed
-  run_id: null
-  at: '2026-09-25T14:20:24Z'
+  run_id: '36274136022'
+  commit: 28e280738f7ac65af52fe810acd4783496196f3d
+  run_attempt: '1'
+  at: '2026-09-26T21:50:01Z'
+  timestamp_source: observed
   summary: bash syntax + ShellCheck (verify.yml)
 last_successful_build:
-  commit: 43340c7afdcb99612c47b84fbd9f64c79e34d6fb
-  at: '2026-09-25T14:20:24Z'
-  run_id: '36146555245'
+  commit: 28e280738f7ac65af52fe810acd4783496196f3d
+  at: '2026-09-26T21:50:01Z'
+  run_id: '36274136022'
 last_failed_build: null
 sync:
   status: ok
-  last_synced_at: '2026-09-25T14:20:24Z'
+  last_synced_at: '2026-09-26T21:50:01Z'
   source: ci

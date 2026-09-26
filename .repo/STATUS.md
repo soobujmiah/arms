@@ -2,15 +2,15 @@
 # arms -- deterministic status
 
 - Repository: `soobujmiah/arms`
-- Generated at: 2026-09-25T14:20:24Z (by `tools/repo_knowledge collect`)
-- Version: `43340c7`
-- Head: `43340c7afdcb99612c47b84fbd9f64c79e34d6fb` on `main` (2026-09-25T14:18:03Z)
+- Generated at: 2026-09-26T21:50:01Z (by `tools/repo_knowledge collect`)
+- Version: `28e2807`
+- Head: `28e280738f7ac65af52fe810acd4783496196f3d` on `main` (2026-09-26T21:47:35Z)
 
 ## Build / test
 
-- Build: **passed** (run `36146555245`)
+- Build: **passed** (run `36274136022`)
 - Test: **passed** -- bash syntax + ShellCheck (verify.yml)
-- Last successful build: `43340c7afdcb99612c47b84fbd9f64c79e34d6fb` at 2026-09-25T14:20:24Z
+- Last successful build: `28e280738f7ac65af52fe810acd4783496196f3d` at 2026-09-26T21:50:01Z
 
 ## Phases
 - Not configured (no `.repo/phases.yaml`).
@@ -19,4 +19,4 @@
 
 - Status: ok
 - Source: ci
-- Last synced at: 2026-09-25T14:20:24Z
+- Last synced at: 2026-09-26T21:50:01Z
