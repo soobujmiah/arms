@@ -1,13 +1,13 @@
 schema_version: 1
 project_id: arms
 repository: soobujmiah/arms
-generated_at: '2026-09-26T21:50:01Z'
+generated_at: '2026-09-29T17:21:14Z'
 generated_by: tools/repo_knowledge collect
-version: 28e2807
+version: e1031fd
 head:
-  commit: 28e280738f7ac65af52fe810acd4783496196f3d
+  commit: e1031fdb1ad2f92d510d5953e5d32f730720c395
   branch: main
-  committed_at: '2026-09-26T21:47:35Z'
+  committed_at: '2026-09-29T17:16:46Z'
 phases:
   source: not_configured
   completed: []
@@ -15,25 +15,39 @@ phases:
   next: null
 build:
   status: passed
-  run_id: '36274136022'
-  commit: 28e280738f7ac65af52fe810acd4783496196f3d
+  run_id: '36603817223'
+  commit: e1031fdb1ad2f92d510d5953e5d32f730720c395
   run_attempt: '1'
-  at: '2026-09-26T21:50:01Z'
+  at: '2026-09-29T17:21:14Z'
   timestamp_source: observed
+  workflow_name: Verify Setup
+  workflow_id: '269090676'
+  event_type: push
+  started_at: '2026-09-29T17:16:53Z'
+  completed_at: '2026-09-29T17:18:53Z'
+  actor: soobujmiah
+  run_url: https://github.com/soobujmiah/arms/actions/runs/36603817223
 test:
   status: passed
-  run_id: '36274136022'
-  commit: 28e280738f7ac65af52fe810acd4783496196f3d
+  run_id: '36603817223'
+  commit: e1031fdb1ad2f92d510d5953e5d32f730720c395
   run_attempt: '1'
-  at: '2026-09-26T21:50:01Z'
+  at: '2026-09-29T17:21:14Z'
   timestamp_source: observed
+  workflow_name: Verify Setup
+  workflow_id: '269090676'
+  event_type: push
+  started_at: '2026-09-29T17:16:53Z'
+  completed_at: '2026-09-29T17:18:53Z'
+  actor: soobujmiah
+  run_url: https://github.com/soobujmiah/arms/actions/runs/36603817223
   summary: bash syntax + ShellCheck (verify.yml)
 last_successful_build:
-  commit: 28e280738f7ac65af52fe810acd4783496196f3d
-  at: '2026-09-26T21:50:01Z'
-  run_id: '36274136022'
+  commit: e1031fdb1ad2f92d510d5953e5d32f730720c395
+  at: '2026-09-29T17:21:14Z'
+  run_id: '36603817223'
 last_failed_build: null
 sync:
   status: ok
-  last_synced_at: '2026-09-26T21:50:01Z'
+  last_synced_at: '2026-09-29T17:21:14Z'
   source: ci
