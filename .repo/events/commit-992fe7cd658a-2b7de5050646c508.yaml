@@ -1,0 +1,8 @@
+event_id: commit-992fe7cd658a-2b7de5050646c508
+repository: soobujmiah/arms
+commit: 992fe7cd658a59f0a38d47f8cc2518f10e994292
+kind: commit
+occurred_at: '2026-09-29T22:36:20Z'
+status: completed
+summary: Declare the repository's canonical type and add the documentation scaffold
+  (migration waves 2/3)

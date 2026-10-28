@@ -2,9 +2,9 @@
 # arms -- deterministic status
 
 - Repository: `soobujmiah/arms`
-- Generated at: 2026-09-29T17:21:14Z (by `tools/repo_knowledge collect`)
-- Version: `e1031fd`
-- Head: `e1031fdb1ad2f92d510d5953e5d32f730720c395` on `main` (2026-09-29T17:16:46Z)
+- Generated at: 2026-09-29T22:36:20Z (by `tools/repo_knowledge collect`)
+- Version: `992fe7c`
+- Head: `992fe7cd658a59f0a38d47f8cc2518f10e994292` on `main` (2026-09-29T22:36:20Z)
 
 ## Build / test
 
@@ -19,4 +19,4 @@
 
 - Status: ok
 - Source: ci
-- Last synced at: 2026-09-29T17:21:14Z
+- Last synced at: 2026-09-29T22:36:20Z
